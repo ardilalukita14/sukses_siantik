@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hewan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
@@ -25,7 +26,7 @@ class LoginController extends Controller
         ];
 
         if (Auth::Attempt($data)) {
-            return redirect('home');
+            return redirect('datatables');
         }else{
             Session::flash('error', 'Nama pemilik atau jenis hewan tidak ditemukan');
             return redirect('/');

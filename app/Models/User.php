@@ -18,9 +18,12 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'id',
+        'nama_pemilik',
+        'jenis_hewan',
+        'riwayat_penyakit',
+        'usia',
+        'alamat',
     ];
 
     /**
@@ -29,7 +32,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
+        'nama_pemilik',
         'remember_token',
     ];
 
@@ -41,4 +44,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string[]
+     */
+    protected $table = "hewan";
 }

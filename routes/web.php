@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Middleware\Pendaftaran;
+use App\Http\Controllers\FormPasienBaruController;
+use App\Http\Controllers\FormPasienLamaController;
+use App\Http\Controllers\DataController;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +24,27 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Route::get('/form-old-pasien', function() {
+    //return view('form_basics');
+//});
+
+// Route::get('/form-old-pasien', [FormPasienLamaController::class, 'form_old_pasien'])->name('form_basics');
+Route::get('/form-new-pasien', [FormPasienBaruController::class, 'form_new_pasien'])->name('form_advanceds');
+
+//Route::get('/form-old-pasien', function() {
+    //return view('login');
+//});
+
+Route::get('/simple-tables', function() {
+    return view('simple-tables');
+});
+
+// Route::get('/datatables', function() {
+    // return view('datatables');
+// });
+
+Route::get('/form-old-pasien',[LoginController::class, 'login'])->name('login');
+Route::post('/action', [LoginController::class, 'action'])->name('action');
+Route::get('/datatables', [DataController::class, 'data'])->name('datatables')->middleware('pendaftaran');
+

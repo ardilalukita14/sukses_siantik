@@ -1,73 +1,72 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@include('layouts.app') 
+   
+@section('sidebar')
+  @parent
 @endsection
+    
+@section('content')
+<body class="bg-gradient-login">
+  <!-- Login Content -->
+  <div class="container-fluid" id="container-wrapper">
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Form Pendaftar Lama</h1>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="./">Home</a></li>
+              <li class="breadcrumb-item">Forms</li>
+              <li class="breadcrumb-item active" aria-current="page">Form Pendaftar Lama</li>
+            </ol>
+          </div>
+
+          
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Form Pendaftar Lama</h6>
+                </div>
+                <hr>
+            @if(session('error'))
+            <div class="alert alert-danger">
+                <b>Opps!</b> {{session('error')}}
+            </div>
+            @endif
+            <form action="{{ route('action') }}" method="post">
+            @csrf
+                <div class="card-body">
+                  <form class="user">
+                  <div class="form-group">
+                    <label>Nama Pemilik</label>
+                    <input type="name" name="nama_pemilik" class="form-control" placeholder="Masukkan Nama Pemilik" required="">
+                        <small id="nameHelp" class="form-text text-muted">Pastikan nama yang terisi sudah pernah melakukan pendaftaran sebelumnya.</small>
+                    </div>
+                    <div class="form-group">
+                    <label>Jenis Hewan Peliharaan</label>
+                    <input type="name" name="jenis_hewan" class="form-control" placeholder="Masukkan Jenis Hewan" required="">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                <hr>
+                    <div class="row">
+                  <div class="col-lg-12 text-center">
+                    <p>Gagal Akses ?</p>
+                  <div class="text-center">
+                    <a class="font-weight-bold small" href="register.html">Cek Status Pendaftaran</a>
+                  </div>
+                  <div class="text-center">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</div>
+                @extends('layouts.footer')
+                </div>
+
+  <!-- Login Content -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="js/ruang-admin.min.js"></script>
+</body>
+
+</html>
