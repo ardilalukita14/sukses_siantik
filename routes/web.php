@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -29,7 +29,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     //return view('form_basics');
 //});
 
-// Route::get('/form-old-pasien', [FormPasienLamaController::class, 'form_old_pasien'])->name('form_basics');
+Route::get('/form-old-pasien', [FormPasienLamaController::class, 'form_old_pasien'])->name('form_basics');
 Route::get('/form-new-pasien', [FormPasienBaruController::class, 'form_new_pasien'])->name('form_advanceds');
 
 //Route::get('/form-old-pasien', function() {
@@ -44,7 +44,7 @@ Route::get('/simple-tables', function() {
     // return view('datatables');
 // });
 
-Route::get('/form-old-pasien',[LoginController::class, 'login'])->name('login');
-Route::post('/action', [LoginController::class, 'action'])->name('action');
-Route::get('/datatables', [DataController::class, 'data'])->name('datatables')->middleware('pendaftaran');
+//Route::get('/form-old-pasien',[LoginController::class, 'login'])->name('login');
+//Route::post('/action', [LoginController::class, 'action'])->name('action');
+//Route::get('/datatables', [DataController::class, 'data'])->name('datatables')->middleware('pendaftaran');
 

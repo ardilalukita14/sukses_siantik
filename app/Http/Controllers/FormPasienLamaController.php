@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class FormPasienLamaController extends Controller
 {
-    public function post_form_old_pasien(Request $request)
+    public function form_old_pasien()
     {
-        dd($request->all());
+        return view('form_basics');
     }
 }

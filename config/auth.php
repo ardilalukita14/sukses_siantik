@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'nama_pemilik' => 'users',
+        'passwords' => 'users',
     ],
 
     /*

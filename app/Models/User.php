@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'id',
+        'password',
         'nama_pemilik',
         'jenis_hewan',
         'riwayat_penyakit',
@@ -32,7 +33,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'nama_pemilik',
+        'password',
         'remember_token',
     ];
 
@@ -50,5 +51,5 @@ class User extends Authenticatable
      *
      * @var string[]
      */
-    protected $table = "hewan";
+      protected $table = "hewan";
 }
