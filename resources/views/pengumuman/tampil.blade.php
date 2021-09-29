@@ -6,8 +6,8 @@
 @section('content')
               <!-- Additional Content -->
               <div class="card mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h1 class="m-0 font-weight-bold text-primary">KLINIK HEWAN</h1>
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-center">
+                  <h1 class="m-0 font-weight-bold text-primary">PENGUMUMAN</h1>
                 </div>
                 <div class="card-body">
                   <div class="alert alert-success" role="alert">
@@ -18,8 +18,7 @@
                     </p>
                     <hr>
                     <p class="mb-0">
-                      Whenever you need to, be sure to use margin utilities to keep things nice
-                      and tidy.
+                      "Hewan adalah makhluk hidup, cerdas, tanggap, lucu dan menghibur. Kita berutang kepada mereka tugas menjaga seperti yang kita lakukan kepada anak-anak." - Michael Morpurgo
                     </p>
                     @endforeach
                   </div>
