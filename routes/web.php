@@ -6,6 +6,8 @@ use App\Http\Controllers\FormPasienBaruController;
 use App\Http\Controllers\FormPasienLamaController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PengumumanController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,3 +50,10 @@ Route::get('/simple-tables', function() {
 //Route::post('/action', [LoginController::class, 'action'])->name('action');
 //Route::get('/datatables', [DataController::class, 'data'])->name('datatables')->middleware('pendaftaran');
 
+Route::resource('pengumuman', PengumumanController::class);
+
+// Route::get('/tampilPengumuman', function () {
+//     return view('pengumuman.tampil');
+// });
+
+Route::get('/tampilPengumuman', [PengumumanController::class, 'tampil']);

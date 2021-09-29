@@ -118,9 +118,9 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span>
+        <a class="nav-link collapsed" href="{{'/tampilPengumuman'}}">
+            <i class="fas fa-fw fa-columns"></i>
+            <span>Pengumuman</span>
         </a>
       </li>
       <hr class="sidebar-divider">
