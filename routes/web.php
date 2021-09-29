@@ -8,12 +8,9 @@ use App\Http\Controllers\DataPendaftaranBaruController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\LoginController;
-<<<<<<< HEAD
 use App\Http\Controllers\PengumumanController;
 
-=======
 use App\Http\Controllers\DataPasienController;
->>>>>>> 4384d4bebee231bcbdd81f869f94465bf246dd2f
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,7 +59,6 @@ Route::get('/datatables', function() {
 Route::resource('dataPasien',  DataPasienController::class);
 //Route::get('/form-old-pasien',[LoginController::class, 'login'])->name('login');
 //Route::post('/action', [LoginController::class, 'action'])->name('action');
-<<<<<<< HEAD
 //Route::get('/datatables', [DataController::class, 'data'])->name('datatables')->middleware('pendaftaran');
 
 Route::resource('pengumuman', PengumumanController::class);
@@ -72,6 +68,4 @@ Route::resource('pengumuman', PengumumanController::class);
 // });
 
 Route::get('/tampilPengumuman', [PengumumanController::class, 'tampil']);
-=======
 //Route::get('/datatables', [DataController::class, 'data'])->name('datatables')->middleware('pendaftaran');
->>>>>>> 4384d4bebee231bcbdd81f869f94465bf246dd2f
