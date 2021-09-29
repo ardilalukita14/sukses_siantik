@@ -13,7 +13,7 @@
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <!-- Select2 -->
   <link href="vendor/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css">
-  <!-- Bootstrap DatePicker -->  
+  <!-- Bootstrap DatePicker -->
   <link href="vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" >
   <!-- Bootstrap Touchspin -->
   <link href="vendor/bootstrap-touchspin/css/jquery.bootstrap-touchspin.css" rel="stylesheet" >
@@ -86,7 +86,7 @@
         <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Tables</h6>
-            <a class="collapse-item" href="simple-tables.html">Simple Tables</a>
+            <a class="collapse-item" href="simple-tables.html">Cek Pendaftaran</a>
             <a class="collapse-item" href="datatables.html">DataTables</a>
           </div>
         </div>
@@ -317,7 +317,7 @@
         </nav>
         <!-- Topbar -->
 
-        
+
         @show
 
         <div class="container">

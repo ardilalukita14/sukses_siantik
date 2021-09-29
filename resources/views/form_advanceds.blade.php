@@ -1,4 +1,4 @@
-@include('layouts.app1') 
+@include('layouts.app')
 @section('sidebar')
   @parent
 @endsection
@@ -23,60 +23,60 @@
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">Form Pendaftaran</h6>
                 </div>
-                <div class="card-body">        
-                  <p>Harap memasukkan data dengan benar.</p>          
-                  <div class="form-group">
-                  <label for="exampleInputEmail1">Nama Pemilik</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Masukkan Nama">
-                  </div>
-                  <div class="form-group">
-                      <label for="exampleInputPassword1">Hewan Peliharaan</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Masukkan Jenis Hewan">
-                    </div>
-                  
-                  <div class="form-group">
-                    <label for="select2SinglePlaceholder">Usia Hewan</label>
-                    <select class="select2-single-placeholder form-control" name="state" id="select2SinglePlaceholder">
-                      <option value="Masukkan Usia Hewan">Masukkan Usia Hewan</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                    </select>
-                  </div>
+                <div class="card-body">
+                  <p>Harap memasukkan data dengan benar.</p>
 
-                  <div class="form-group">
-                      <label for="exampleInputPassword1">Riwayat Penyakit</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Masukkan Riwayat Penyakit">
+                <form method="post" action="{{ '/daftar' }}" id="myForm" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                            <label for="exampleInputEmail1">Nama Pemilik</label>
+                            <input type="input" class="form-control" name="pemilik" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Masukkan Nama">
                     </div>
-                  <div class="form-group" id="simple-date1">
-                    <label for="simpleDataInput">Tanggal Periksa</label>
-                      <div class="input-group date">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Hewan Peliharaan</label>
+                        <input type="input" name="jenis_hewan" class="form-control" id="exampleInputPassword1" placeholder="Masukkan Jenis Hewan">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="select2SinglePlaceholder">Usia Hewan</label>
+                        <select class="select2-single-placeholder form-control" name="usia" id="select2SinglePlaceholder">
+                        <option value="Masukkan Usia Hewan">Usia Hewan dalam Bulan</option>
+                        @for ($x = 1; $x <= 10; $x++) {
+                            <option value="{{$x}}">{{$x}}</option>
+                        }
+                        @endfor
+                        </select>
+                    </div>
+
+
+                    <div class="form-group" id="simple-date1">
+                        <label for="simpleDataInput">Tanggal Periksa</label>
+                        <div class="input-group date">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                            </div>
+                            <input name="tanggal" type="text" class="form-control" value="25/09/2021" id="simpleDataInput">
                         </div>
-                        <input type="text" class="form-control" value="25/09/2021" id="simpleDataInput">
-                      </div>
-                  </div>
+                    </div>
 
-                  <div class="form-group">
-                    <label for="select2SinglePlaceholder">Nama Dokter</label>
-                    <select class="select2-single-placeholder form-control" name="state" id="select2SinglePlaceholder">
-                    
-                      <option value="Niken">Niken</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                    </select>
-                  </div>
-                 
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Alamat</label>
+                        <input type="input" name="alamat" class="form-control" id="exampleInputPassword1" placeholder="Masukkan Alamat">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="select2SinglePlaceholder">Nama Dokter</label>
+                        <select name="id_dokter" class="select2-single-placeholder form-control" name="state" id="select2SinglePlaceholder">
+                            @foreach($dokter as $dokter)
+                                <option value="{{$dokter->id}}">{{$dokter->nama_dok}}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
                   </div>
                 </div>
               </div>
@@ -113,7 +113,7 @@
       $('.select2-single-placeholder').select2({
         placeholder: "Select a Province",
         allowClear: true
-      });      
+      });
 
       // Select2 Multiple
       $('.select2-multiple').select2();
@@ -123,39 +123,39 @@
         format: 'dd/mm/yyyy',
         todayBtn: 'linked',
         todayHighlight: true,
-        autoclose: true,        
+        autoclose: true,
       });
 
       $('#simple-date2 .input-group.date').datepicker({
         startView: 1,
-        format: 'dd/mm/yyyy',        
-        autoclose: true,     
-        todayHighlight: true,   
+        format: 'dd/mm/yyyy',
+        autoclose: true,
+        todayHighlight: true,
         todayBtn: 'linked',
       });
 
       $('#simple-date3 .input-group.date').datepicker({
         startView: 2,
-        format: 'dd/mm/yyyy',        
-        autoclose: true,     
-        todayHighlight: true,   
+        format: 'dd/mm/yyyy',
+        autoclose: true,
+        todayHighlight: true,
         todayBtn: 'linked',
       });
 
-      $('#simple-date4 .input-daterange').datepicker({        
-        format: 'dd/mm/yyyy',        
-        autoclose: true,     
-        todayHighlight: true,   
+      $('#simple-date4 .input-daterange').datepicker({
+        format: 'dd/mm/yyyy',
+        autoclose: true,
+        todayHighlight: true,
         todayBtn: 'linked',
-      });    
+      });
 
       // TouchSpin
 
       $('#touchSpin1').TouchSpin({
         min: 0,
-        max: 100,                
+        max: 100,
         boostat: 5,
-        maxboostedstep: 10,        
+        maxboostedstep: 10,
         initval: 0
       });
 
@@ -194,7 +194,7 @@
         align: 'left',
       });
 
-      $('#check-minutes').click(function(e){        
+      $('#check-minutes').click(function(e){
         e.stopPropagation();
         input.clockpicker('show').clockpicker('toggleView', 'minutes');
       });
