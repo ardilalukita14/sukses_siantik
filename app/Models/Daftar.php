@@ -11,14 +11,14 @@ class Daftar extends Model
     protected $table = "daftar";
     public $timestamps = false;
     // Eloquent akan membuat model mahasiswa menyimpan record di tabel mahasiswas
-    protected $primaryKey = 'id_daftar'; // Memanggil isi DB Dengan primarykey
+    protected $primaryKey = 'id'; // Memanggil isi DB Dengan primarykey
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'id_daftar',
+        'id',
         'nama_pemilik',
         'jenis_hewan',
         'usia',

@@ -63,7 +63,7 @@
         <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Pendaftaran</h6>
-            <a class="collapse-item" href="{{'/form-old-pasien'}}">Form Pendaftar Lama</a>
+            <a class="collapse-item" href="{{'/dataPasien'}}">Form Pendaftar Lama</a>
             <a class="collapse-item" href="{{'/form-new-pasien'}}">Form Pendaftar Baru</a>
           </div>
         </div>

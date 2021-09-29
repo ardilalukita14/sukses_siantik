@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Daftar;
+use App\Models\Dokter;
 use Illuminate\Http\Request;
 
 class FormPasienLamaController extends Controller
@@ -10,4 +11,5 @@ class FormPasienLamaController extends Controller
     {
         return view('form_basics');
     }
+
 }

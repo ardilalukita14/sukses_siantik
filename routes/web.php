@@ -8,6 +8,7 @@ use App\Http\Controllers\DataPendaftaranBaruController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DataPasienController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,11 +42,19 @@ Route::resource('daftarBaru', DataPendaftaranBaruController::class);
     //return view('login');
 //});
 
+Route::get('/simple-tables', function() {
+    return view('simple-tables');
+});
 
-// Route::get('/datatables', function() {
-    // return view('datatables');
-// });
+Route::get('/datatables', function() {
+    return view('datatables');
+});
 
+//Route::get('/daftar-pasien', function() {
+    //return view('dataPasien.index');
+//});
+
+Route::resource('dataPasien',  DataPasienController::class);
 //Route::get('/form-old-pasien',[LoginController::class, 'login'])->name('login');
 //Route::post('/action', [LoginController::class, 'action'])->name('action');
 //Route::get('/datatables', [DataController::class, 'data'])->name('datatables')->middleware('pendaftaran');
