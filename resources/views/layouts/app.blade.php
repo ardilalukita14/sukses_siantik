@@ -58,12 +58,12 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
           aria-controls="collapseForm">
           <i class="fab fa-fw fa-wpforms"></i>
-          <span>Forms</span>
+          <span>Pendaftaran</span>
         </a>
         <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Forms</h6>
-            <a class="collapse-item" href="{{'/form-old-pasien'}}">Form Pendaftar Lama</a>
+            <h6 class="collapse-header">Pendaftaran</h6>
+            <a class="collapse-item" href="{{'/dataPasien'}}">Form Pendaftar Lama</a>
             <a class="collapse-item" href="{{'/form-new-pasien'}}">Form Pendaftar Baru</a>
           </div>
         </div>
@@ -77,7 +77,7 @@
         <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Tables</h6>
-            <a class="collapse-item" href="{{'/simple-tables'}}">Simple Tables</a>
+            <a class="collapse-item" href="{{'/cekPendaftar'}}">Cek Pendaftaran</a>
             <a class="collapse-item" href="{{'/datatables'}}">DataTables</a>
           </div>
         </div>

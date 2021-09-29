@@ -7,36 +7,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link href="img/logo/logo-klinik.png" rel="icon">
-  <title>SIANTIK</title>
+  <link href="img/logo/SIANTIK.png" rel="icon">
+  <title>SIANTIK - Dashboard</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <!-- Select2 -->
-  <link href="vendor/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css">
-  <!-- Bootstrap DatePicker -->
-  <link href="vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" >
-  <!-- Bootstrap Touchspin -->
-  <link href="vendor/bootstrap-touchspin/css/jquery.bootstrap-touchspin.css" rel="stylesheet" >
-  <!-- ClockPicker -->
-  <link href="vendor/clock-picker/clockpicker.css" rel="stylesheet">
-  <!-- RuangAdmin CSS -->
   <link href="css/ruang-admin.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
   <div id="wrapper">
 
-
-  @section('sidebar')
-  <!-- Sidebar -->
-  <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+   <!-- Sidebar -->
+   <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon">
-        <img src="img/logo/logo-klinik.png">
+          <img src="img/logo/logo-klinik.png">
         </div>
       </a>
       <hr class="sidebar-divider my-0">
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="index.html">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
@@ -63,17 +52,17 @@
           </div>
         </div>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
           aria-controls="collapseForm">
           <i class="fab fa-fw fa-wpforms"></i>
           <span>Forms</span>
         </a>
-        <div id="collapseForm" class="collapse show" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+        <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Forms</h6>
             <a class="collapse-item" href="{{'/dataPasien'}}">Form Pendaftar Lama</a>
-            <a class="collapse-item active" href="{{'/form-new-pasien'}}">Form Pendaftar Baru</a>
+            <a class="collapse-item" href="{{'/form-new-pasien'}}">Form Pendaftar Baru</a>
           </div>
         </div>
       </li>
@@ -86,8 +75,8 @@
         <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Tables</h6>
-            <a class="collapse-item" href="simple-tables.html">Cek Pendaftaran</a>
-            <a class="collapse-item" href="datatables.html">DataTables</a>
+            <a class="collapse-item" href="{{'/simple-tables'}}">Simple Tables</a>
+            <a class="collapse-item" href="{{'/datatables'}}">DataTables</a>
           </div>
         </div>
       </li>
@@ -110,7 +99,7 @@
         <div id="collapsePage" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Example Pages</h6>
-            <a class="collapse-item" href="login.html">Login</a>
+            <a class="collapse-item" href="{{'/login'}}">Login</a>
             <a class="collapse-item" href="register.html">Register</a>
             <a class="collapse-item" href="404.html">404 Page</a>
             <a class="collapse-item" href="blank.html">Blank Page</a>
@@ -118,9 +107,9 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{'/tampilPengumuman'}}">
-            <i class="fas fa-fw fa-columns"></i>
-            <span>Pengumuman</span>
+        <a class="nav-link" href="charts.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Charts</span>
         </a>
       </li>
       <hr class="sidebar-divider">
@@ -144,9 +133,8 @@
                 aria-labelledby="searchDropdown">
                 <form class="navbar-search">
                   <div class="input-group">
-                    <input type="text" class="form-control bg-light border-1 small"
-                      placeholder="What do you want to look for?" aria-label="Search" aria-describedby="basic-addon2"
-                      style="border-color: #3f51b5;">
+                    <input type="text" class="form-control bg-light border-1 small" placeholder="What do you want to look for?"
+                      aria-label="Search" aria-describedby="basic-addon2" style="border-color: #3f51b5;">
                     <div class="input-group-append">
                       <button class="btn btn-primary" type="button">
                         <i class="fas fa-search fa-sm"></i>
@@ -316,11 +304,118 @@
           </ul>
         </nav>
         <!-- Topbar -->
-
-
-        @show
-
         <div class="container">
-            @yield('content')
-        </div>
-</div>
+<div class="row g-2">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-left mt-2">
+                </div>
+
+        <!-- Container Fluid-->
+        <div class="container-fluid" id="container-wrapper">
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">DataTables</h1>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="./">Home</a></li>
+              <li class="breadcrumb-item">Tables</li>
+              <li class="breadcrumb-item active" aria-current="page">DataTables</li>
+            </ol>
+          </div>
+          
+          <!-- Row -->
+          <div class="row">
+            <!-- Datatables -->
+            <div class="col-lg-12">
+              <div class="card mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">DataTables</h6>
+                </div>
+                <!-- Topbar Search -->
+          <form  action="{{route('dataPasien.index')}}" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+              <div class="input-group">
+                <input name="search" type="text" class="form-control bg-light border-5 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-search fa-sm"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+
+                <div class="table-responsive p-3">
+                  <table class="table align-items-center table-flush" id="dataTable">
+                   
+                  <table class="table table-bordered">
+                    <tr>
+                        <th>Nama Pemilik</th>
+                        <th>Hewan Peliharaan</th>
+                        <th>Usia Hewan</th>
+                        <th>Alamat</th>
+                        <th>Tanggal Periksa</th>
+                        <th>Nama Dokter</th>
+                        <th width="300px">Action</th>
+                      </tr>
+                      @foreach ($daftars as $data)
+                    <tr>
+
+                        <td>{{ $data->nama_pemilik }}</td>
+                        <td>{{ $data->jenis_hewan }}</td>
+                        <td>{{ $data->usia }}</td>
+                        <td>{{ $data->alamat }}</td>
+                        <td>{{ $data->tanggal }}</td>
+                        @foreach ($dokters as $data1)
+                    <td>{{ $data1->nama_dokter }}</td>
+                    @endforeach
+                      
+                        <td>
+                      
+                            <a class="btn btn-info" href="{{ route('dataPasien.show',$data->id) }}">Show</a>
+                            <a class="btn btn-primary" href="{{ route('dataPasien.edit',$data->id) }}">Update</a>
+                            <a class="btn btn-primary" href="{{ route('dataPasien.create',$data->id) }}">Create</a>
+                           
+                        </td>
+                    </tr>
+                    @endforeach
+                </table>
+            
+         
+        <!---Container Fluid-->
+      </div>
+
+      <!-- Footer -->
+      </div>
+  </div>
+  </div>
+  </div>
+      @extends('layouts.footer')
+      <!-- Footer -->
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <!-- Scroll to top -->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="js/ruang-admin.min.js"></script>
+  <!-- Page level plugins -->
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script>
+    $(document).ready(function () {
+      $('#dataTable').DataTable(); // ID From dataTable 
+      $('#dataTableHover').DataTable(); // ID From dataTable with Hover
+    });
+  </script>
+
+</body>
+
+</html>
