@@ -69,7 +69,7 @@
                         <label for="select2SinglePlaceholder">Nama Dokter</label>
                         <select name="id_dokter" class="select2-single-placeholder form-control" name="state" id="select2SinglePlaceholder">
                             @foreach($dokter as $dokter)
-                                <option value="{{$dokter->id}}">{{$dokter->nama_dok}}</option>
+                                <option value="{{$dokter->id}}">{{$dokter->nama_dokter}}</option>
                             @endforeach
 
                         </select>
