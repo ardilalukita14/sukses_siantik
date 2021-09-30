@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jadwal;
+use App\Models\Dokter;
 use Illuminate\Http\Request;
 
 class JadwalController extends Controller
@@ -14,7 +14,7 @@ class JadwalController extends Controller
      */
     public function index(Request $request)
     {
-        $Jadwal = Jadwal::paginate(5); // Pagination mengambil 5 data
+        $Jadwal = Dokter::paginate(5); // Pagination mengambil 5 data
         return view('jadwal.index' , compact('Jadwal'));
     }
 
@@ -36,12 +36,12 @@ class JadwalController extends Controller
      */
     public function store(Request $request)
     {
-        Jadwal::create([
+        Dokter::create([
             'id' => $request->id,
-            'Nama' => $request->Nama,
-            'Jam_Praktik' => $request->Jam_Praktik,
-            'Hari_Praktik' => $request->Hari_Praktik,
-            'Kuota' => $request->Kuota,
+            'nama_dokter' => $request->Nama,
+            'jam_praktek' => $request->Jam_Praktik,
+            'hari_praktek' => $request->Hari_Praktik,
+            'kuota' => $request->Kuota,
         ]);
 
         //jika data berhasil ditambahkan, akan kembali ke halaman utama
@@ -58,13 +58,13 @@ class JadwalController extends Controller
      */
     public function show($id)
     {
-        $Jadwal = Jadwal::find($id);
+        $Jadwal = Dokter::find($id);
         return view('jadwal.detail', compact('Jadwal'));
     }
 
     public function tampil()
     {
-        $Jadwal = Jadwal::all();
+        $Jadwal = Dokter::all();
         return view('jadwal.tampil', compact('Jadwal'));
     }
 
@@ -76,7 +76,7 @@ class JadwalController extends Controller
      */
     public function edit($id)
     {
-        $Jadwal = Jadwal::find($id);
+        $Jadwal = Dokter::find($id);
 
         return view('jadwal.edit', compact('Jadwal'));
     }
@@ -90,16 +90,16 @@ class JadwalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Jadwal = Jadwal::find($id);
+        $Jadwal = Dokter::find($id);
         $Jadwal->id = $id;
-        $Jadwal->Nama = $request->Nama;
-        $Jadwal->Jam_Praktik = $request->Jam_Praktik;
-        $Jadwal->Hari_Praktik = $request->Hari_Praktik;
-        $Jadwal->Kuota = $request->Kuota;
+        $Jadwal->nama_dokter = $request->Nama;
+        $Jadwal->jam_praktek = $request->Jam_Praktik;
+        $Jadwal->hari_praktek = $request->Hari_Praktik;
+        $Jadwal->kuota = $request->Kuota;
 
         $Jadwal->save();
 
-        return redirect()->route('jadwal.index')
+        return redirect('/tampilJadwal')
             ->with('success', 'Data Berhasil Diupdate');
     }
 
@@ -111,7 +111,7 @@ class JadwalController extends Controller
      */
     public function destroy($id)
     {
-        $Jadwal=Jadwal::find($id);
+        $Jadwal=Dokter::find($id);
         $Jadwal->delete();
         return redirect()->route('jadwal.index')
             ->with('success', 'Data Berhasil Dihapus');

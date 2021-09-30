@@ -23,9 +23,7 @@ use App\Http\Controllers\DataPasienController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [PengumumanController::class, 'tampil']);
 
 //Auth::routes();
 
@@ -73,3 +71,5 @@ Route::get('/tampilPengumuman', [PengumumanController::class, 'tampil']);
 
 Route::resource('jadwal', JadwalController::class);
 Route::get('/tampilJadwal', [JadwalController::class, 'tampil']);
+
+

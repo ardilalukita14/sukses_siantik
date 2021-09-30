@@ -27,22 +27,22 @@
 
                     <div class="form-group">
                         <label for="Nama">Nama</label>
-                        <input type="Nama" name="Nama" class="form-control" id="Nama" value="{{$Jadwal->Nama}}" aria-describedby="Nama" >
+                        <input type="Nama" name="Nama" class="form-control" id="Nama" value="{{$Jadwal->nama_dokter}}" aria-describedby="Nama" >
                     </div>
 
                     <div class="form-group">
                         <label for="Jam_Praktik">Jam_Praktik</label>
-                        <input type="Jam_Praktik" name="Jam_Praktik" class="form-control" id="Jam_Praktik" value="{{$Jadwal->Jam_Praktik}}" aria-describedby="Jam_Praktik" >
+                        <input type="Jam_Praktik" name="Jam_Praktik" class="form-control" id="Jam_Praktik" value="{{$Jadwal->jam_praktek}}" aria-describedby="Jam_Praktik" >
                     </div>
 
                     <div class="form-group">
                         <label for="Hari_Praktik">Hari_Praktik</label>
-                        <input type="Hari_Praktik" name="Hari_Praktik" class="form-control" id="Hari_Praktik" value="{{$Jadwal->Hari_Praktik}}" aria-describedby="Hari_Praktik" >
+                        <input type="Hari_Praktik" name="Hari_Praktik" class="form-control" id="Hari_Praktik" value="{{$Jadwal->hari_praktek}}" aria-describedby="Hari_Praktik" >
                     </div>
 
                     <div class="form-group">
                         <label for="Kuota">Kuota</label>
-                        <input type="Kuota" name="Kuota" class="form-control" id="Kuota" value="{{$Jadwal->Kuota}}" aria-describedby="Kuota" >
+                        <input type="Kuota" name="Kuota" class="form-control" id="Kuota" value="{{$Jadwal->kuota}}" aria-describedby="Kuota" >
                     </div>
 
 
