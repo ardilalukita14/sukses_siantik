@@ -352,7 +352,7 @@
                         <th>Alamat</th>
                         <th>Tanggal Periksa</th>
                         <th>Nama Dokter</th>
-                        <th width="300px">Action</th>
+                        <th width="200px">Action</th>
                       </tr>
                       @foreach ($daftars as $data)
                     <tr>
@@ -362,15 +362,14 @@
                         <td>{{ $data->usia }}</td>
                         <td>{{ $data->alamat }}</td>
                         <td>{{ $data->tanggal }}</td>
-                        @foreach ($dokters as $data1)
-                    <td>{{ $data1->nama_dokter }}</td>
-                    @endforeach
+                        <td>{{ $data->dokter->nama_dokter }}</td>
+                   
                       
                         <td>
                       
                             <a class="btn btn-info" href="{{ route('dataPasien.show',$data->id) }}">Show</a>
                             <a class="btn btn-primary" href="{{ route('dataPasien.edit',$data->id) }}">Update</a>
-                            <a class="btn btn-primary" href="{{ route('dataPasien.create',$data->id) }}">Create</a>
+                            <!--<a class="btn btn-primary" href="{{ route('dataPasien.create',$data->id) }}">Create</a>-->
                            
                         </td>
                     </tr>

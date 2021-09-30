@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Dokter;
 
 class Daftar extends Model
 {
@@ -24,11 +25,11 @@ class Daftar extends Model
         'usia',
         'tanggal',
         'alamat',
-        'id_dokter',
+        'dokter_id',
     ];
 
     public function dokter()
     {
-        return $this->belongsTo(dokter::class);
+        return $this->belongsTo(Dokter::class);
     }
 }

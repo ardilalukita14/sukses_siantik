@@ -68,10 +68,10 @@ class DataPasienController extends Controller
      */
     public function edit($id)
     {
-        $Daftars = Daftar::find($id);
-        $Dokters = Dokter::all();
+        $Daftar = Daftar::find($id);
+        $dokter = Dokter::all();
 
-        return view('dataPasien.edit', compact('Daftars', 'Dokters'));
+        return view('dataPasien.edit', compact('Daftar', 'dokter'));
     }
 
     /**
@@ -85,13 +85,13 @@ class DataPasienController extends Controller
     {
         $request->validate([
             'tanggal' => 'required',
-            'nama_dokter' => 'required',
+            'dokter' => 'required',
         ]);
 
         $daftars = Daftar::find($id);
 
         $daftars->tanggal = $request->get('tanggal');
-
+       
         $dokter = Dokter::find($request->get('dokter'));
 
         $daftars->dokter()->associate($dokter);
