@@ -9,6 +9,7 @@ use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PengumumanController;
+use App\Http\Controllers\JadwalController;
 
 use App\Http\Controllers\DataPasienController;
 /*
@@ -69,3 +70,6 @@ Route::resource('pengumuman', PengumumanController::class);
 
 Route::get('/tampilPengumuman', [PengumumanController::class, 'tampil']);
 //Route::get('/datatables', [DataController::class, 'data'])->name('datatables')->middleware('pendaftaran');
+
+Route::resource('jadwal', JadwalController::class);
+Route::get('/tampilJadwal', [JadwalController::class, 'tampil']);

@@ -114,6 +114,12 @@
           <span>Pengumuman</span>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{'/tampilJadwal'}}">
+            <i class="fas fa-fw fa-columns"></i>
+            <span>Jadwal Dokter</span>
+        </a>
+      </li>
       <hr class="sidebar-divider">
       <div class="version" id="version-ruangadmin"></div>
     </ul>
