@@ -8,7 +8,7 @@
             </div>
             
             <div class="float-right my-2">
-                <a class="btn btn-success" href="{{ route('pengumuman.create') }}"> Input Pengumuman</a>
+                <a class="btn btn-success" href="{{ route('pengumuman.create') }}">Create Pengumuman</a>
             </div>
         </div>
     </div>
