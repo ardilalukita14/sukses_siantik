@@ -17,10 +17,10 @@
 <body id="page-top">
   <div id="wrapper">
 
-  @section('sidebar')
+    @section('sidebar')
 
-   <!-- Sidebar -->
-   <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+    <!-- Sidebar -->
+    <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="./">
         <div class="sidebar-brand-icon">
           <img src="img/logo/logo-klinik.png">
@@ -54,6 +54,12 @@
           </div>
         </div>
       </li>-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{'/'}}">
+          <i class="fas fa-fw fa-home"></i>
+          <span>Home</span>
+        </a>
+      </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
           aria-controls="collapseForm">
@@ -109,23 +115,41 @@
         </div>
       </li>-->
       <li class="nav-item">
-      <a class="nav-link collapsed" href="{{'/tampilPengumuman'}}">
+        @guest
+        <a class="nav-link collapsed" href="{{'/tampilPengumuman'}}">
           <i class="fas fa-fw fa-columns"></i>
           <span>Pengumuman</span>
         </a>
+        @else
+        <a class="nav-link collapsed" href="{{'/pengumuman'}}">
+          <i class="fas fa-fw fa-columns"></i>
+          <span>Pengumuman</span>
+        </a>
+        @endguest
       </li>
       <li class="nav-item">
+        @guest
         <a class="nav-link collapsed" href="{{'/tampilJadwal'}}">
-            <i class="fas fa-fw fa-columns"></i>
-            <span>Jadwal Dokter</span>
+          <i class="fas fa-fw fa-columns"></i>
+          <span>Jadwal Dokter</span>
         </a>
+        @else
+        <a class="nav-link collapsed" href="{{'/jadwal'}}">
+          <i class="fas fa-fw fa-columns"></i>
+          <span>Jadwal Dokter</span>
+        </a>
+        @endguest
+
       </li>
 
       <li class="nav-item">
+        @guest
         <a class="nav-link collapsed" href="{{ route('login') }}">
-            <i class="fas fa-fw fa-columns"></i>
-            <span>Login Admin</span>
+          <i class="fas fa-fw fa-columns"></i>
+          <span>Login Admin</span>
         </a>
+        @endguest
+
       </li>
 
       <hr class="sidebar-divider">
@@ -149,8 +173,9 @@
                 aria-labelledby="searchDropdown">
                 <form class="navbar-search">
                   <div class="input-group">
-                    <input type="text" class="form-control bg-light border-1 small" placeholder="What do you want to look for?"
-                      aria-label="Search" aria-describedby="basic-addon2" style="border-color: #3f51b5;">
+                    <input type="text" class="form-control bg-light border-1 small"
+                      placeholder="What do you want to look for?" aria-label="Search" aria-describedby="basic-addon2"
+                      style="border-color: #3f51b5;">
                     <div class="input-group-append">
                       <button class="btn btn-primary" type="button">
                         <i class="fas fa-search fa-sm"></i>
@@ -295,7 +320,11 @@
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <img class="img-profile rounded-circle" src="img/boy.png" style="max-width: 60px">
-                <span class="ml-2 d-none d-lg-inline text-white small">Maman Ketoprak</span>
+                @guest
+                <span class="ml-2 d-none d-lg-inline text-white small">SIANTIK</span>
+                @else
+                <span class="ml-2 d-none d-lg-inline text-white small">{{ Auth::user()->name }}</span>
+                @endguest
               </a>
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#">
@@ -311,10 +340,15 @@
                   Activity Log
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+                  {{ __('Logout') }}
                 </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                </form>
+
               </div>
             </li>
           </ul>
@@ -324,6 +358,6 @@
         @show
 
         <div class="container">
-            @yield('content')
+          @yield('content')
         </div>
-</div>
+      </div>

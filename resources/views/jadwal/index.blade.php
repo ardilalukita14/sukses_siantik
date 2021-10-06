@@ -1,4 +1,4 @@
-@extends('layouts.app1')
+@extends('layouts.app')
 
 @section('content')
     <div class="row">
@@ -44,10 +44,10 @@
 
 
             <td>{{ $jadwal->id }}</td>
-            <td>{{ $jadwal->Nama }}</td>
-            <td>{{ $jadwal->Jam_Praktik }}</td>
-            <td>{{ $jadwal->Hari_Praktik }}</td>
-            <td>{{ $jadwal->Kuota }}</td>
+            <td>{{ $jadwal->nama_dokter }}</td>
+            <td>{{ $jadwal->jam_praktek }}</td>
+            <td>{{ $jadwal->hari_praktek }}</td>
+            <td>{{ $jadwal->kuota }}</td>
             <td>
             <form action="{{ route('jadwal.destroy',$jadwal->id) }}" method="POST">
 

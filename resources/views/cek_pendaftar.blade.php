@@ -50,7 +50,7 @@
                         <td><a href="#">RA0449</a></td>
                         <td>{{$daftar->nama_pemilik}}</td>
                         <td>{{$daftar->jenis_hewan}}</td>
-                        <td>drh. Hanum Setyorini</td>
+                        <td>{{$daftar->dokter->nama_dokter}}</td>
                         <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
                       </tr>
                      @endforeach

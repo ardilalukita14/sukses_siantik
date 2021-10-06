@@ -36,14 +36,14 @@ class DaftarController extends Controller
         // 'alamat' => 'required',
         // 'id_dokter' => 'required',
         // ]);
-
+        // dd($request);
         Daftar::create([
             'nama_pemilik' => $request->pemilik,
             'jenis_hewan' => $request->jenis_hewan,
             'usia' => $request->usia,
             'tanggal' => $request->tanggal,
             'alamat' => $request->alamat,
-            'id_dokter' => $request->id_dokter,
+            'dokter_id' => $request->id_dokter,
             'kelas_id' => $request->kelas_id,
 
         ]);
