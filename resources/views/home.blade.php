@@ -320,7 +320,7 @@
                 aria-haspopup="true" aria-expanded="false">
                 <img class="img-profile rounded-circle" src="img/boy.png" style="max-width: 60px">
                 <span class="ml-2 d-none d-lg-inline text-white small">{{ Auth::user()->name }}</span>
-              </a>
+                </a>
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -343,6 +343,7 @@
             </li>
           </ul>
         </nav>
+        
         <!-- Topbar -->
 
         @show
