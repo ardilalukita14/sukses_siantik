@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\Pendaftaran;
 use App\Http\Controllers\FormPasienBaruController;
 use App\Http\Controllers\FormPasienLamaController;
@@ -22,6 +23,8 @@ use App\Http\Controllers\DataPasienController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Auth::routes();
 
 Route::get('/', [PengumumanController::class, 'tampil']);
 
@@ -73,3 +76,4 @@ Route::resource('jadwal', JadwalController::class);
 Route::get('/tampilJadwal', [JadwalController::class, 'tampil']);
 
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

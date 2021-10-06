@@ -88,10 +88,10 @@
           <span>UI Colors</span>
         </a>
       </li>-->
-      <hr class="sidebar-divider">
+      {{-- <hr class="sidebar-divider">
       <div class="sidebar-heading">
         Examples
-      </div>
+      </div> --}}
       <!--<li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage" aria-expanded="true"
           aria-controls="collapsePage">
@@ -120,6 +120,14 @@
             <span>Jadwal Dokter</span>
         </a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('login') }}">
+            <i class="fas fa-fw fa-columns"></i>
+            <span>Login Admin</span>
+        </a>
+      </li>
+
       <hr class="sidebar-divider">
       <div class="version" id="version-ruangadmin"></div>
     </ul>

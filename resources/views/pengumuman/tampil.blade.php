@@ -1,4 +1,4 @@
-@include('layouts.app1') 
+@include('layouts.app') 
 @section('sidebar')
   @parent
 @endsection
