@@ -22,7 +22,7 @@
 
         </div>
         <div class="card-footer text-muted">
-            Cetak Nomer antrian dan tunjukkan pada saat reservasi
+            Tunjukkan Nomer antrian pada saat reservasi
           </div>
       </div>
       @extends('layouts.footer')

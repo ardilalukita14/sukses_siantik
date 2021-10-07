@@ -144,6 +144,19 @@
 
       <li class="nav-item">
         @guest
+        <a class="nav-link collapsed" href="{{''}}">
+        </a>
+        @else
+        <a class="nav-link collapsed" href="{{'/antrianAdmin'}}">
+          <i class="fas fa-fw fa-columns"></i>
+          <span>Antrian</span>
+        </a>
+        @endguest
+
+      </li>
+
+      <li class="nav-item">
+        @guest
         <a class="nav-link collapsed" href="{{ route('login') }}">
           <i class="fas fa-fw fa-columns"></i>
           <span>Login Admin</span>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Antrian;
 use App\Models\Daftar;
 use App\Models\dokter;
 use Illuminate\Http\Request;
@@ -102,6 +103,15 @@ class DataPendaftaranBaruController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Jadwal = Antrian::find($id);
+        $Jadwal->delete();
+        return redirect('antrianAdmin')
+            ->with('success', 'Data Berhasil Dihapus');
+    }
+    public function cetak_pdf($id)
+    {
+        $jml = Antrian::orderBy('no_antrian', 'desc')->where('id', $id)->first();
+        $pdf = PDF::loadview('antrian.cetak_pdf', ['jml' => $jml]);
+        return $pdf->stream();
     }
 }

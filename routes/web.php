@@ -40,10 +40,11 @@ Route::get('/form-old-pasien', [FormPasienLamaController::class, 'form_old_pasie
 Route::get('/form-new-pasien', [DaftarController::class, 'create']);
 Route::post('/daftar', [DaftarController::class, 'store']);
 Route::get('/cekPendaftar', [DaftarController::class, 'index']);
-Route::resource('daftarBaru', DataPendaftaranBaruController::class);
+Route::resource('antrianAdmin', DataPendaftaranBaruController::class);
 Route::get('/antrian', [DaftarController::class, 'antrian']);
-Route::get('/cetak_pdf/{id}', [DaftarController::class, 'cetak_pdf']);
+Route::get('/cetak_pdf/{id}', [DataPendaftaranBaruController::class, 'cetak_pdf']);
 Route::get('/reset', [DaftarController::class, 'reset']);
+Route::get('/antrianAdmin', [DaftarController::class, 'antrianAdmin']);
 
 //Route::get('/form-old-pasien', function() {
 //return view('login');

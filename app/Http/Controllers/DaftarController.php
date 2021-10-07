@@ -82,16 +82,21 @@ class DaftarController extends Controller
         $jml = Antrian::orderBy('no_antrian', 'desc')->paginate(1);
         return view('antrian.index', compact('jml'));
     }
-    public function cetak_pdf($id)
-    {
-        $jml = Antrian::orderBy('no_antrian', 'desc')->where('id', $id)->first();
-        $pdf = PDF::loadview('antrian.cetak_pdf', ['jml' => $jml]);
-        return $pdf->stream();
-    }
+    // public function cetak_pdf($id)
+    // {
+    //     $jml = Antrian::orderBy('no_antrian', 'desc')->where('id', $id)->first();
+    //     $pdf = PDF::loadview('antrian.cetak_pdf', ['jml' => $jml]);
+    //     return $pdf->stream();
+    // }
     public function reset()
     {
         $data = Antrian::find(34);
         $data->delete();
         return redirect('/');
+    }
+    public function antrianAdmin()
+    {
+        $data = Antrian::paginate(5); // Pagination mengambil 5 data
+        return view('antrian.indexAdmin', compact('data'));
     }
 }
