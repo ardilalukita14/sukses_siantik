@@ -37,22 +37,18 @@
                   <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                       <tr>
-                        <th>No. Antrian</th>
                         <th>Nama Pemilik</th>
                         <th>Jenis Hewan</th>
                         <th>Dokter</th>
-                        <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
                     @foreach ($paginate as $daftar)
                       <tr>
-                        <td><a href="#">RA0449</a></td>
                         <td>{{$daftar->nama_pemilik}}</td>
                         <td>{{$daftar->jenis_hewan}}</td>
                         <td>{{$daftar->dokter->nama_dokter}}</td>
-                        <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                      </tr>
+                        </tr>
                      @endforeach
                     </tbody>
                   </table>

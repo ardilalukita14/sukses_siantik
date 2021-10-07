@@ -11,7 +11,7 @@ use App\Http\Controllers\DataController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\JadwalController;
-
+use App\Http\Controllers\DataPasienAdminController;
 use App\Http\Controllers\DataPasienController;
 /*
 |--------------------------------------------------------------------------
@@ -40,11 +40,9 @@ Route::get('/form-old-pasien', [FormPasienLamaController::class, 'form_old_pasie
 Route::get('/form-new-pasien', [DaftarController::class, 'create']);
 Route::post('/daftar', [DaftarController::class, 'store']);
 Route::get('/cekPendaftar', [DaftarController::class, 'index']);
-Route::resource('antrianAdmin', DataPendaftaranBaruController::class);
+Route::resource('daftarBaru', DataPendaftaranBaruController::class);
 Route::get('/antrian', [DaftarController::class, 'antrian']);
-Route::get('/cetak_pdf/{id}', [DataPendaftaranBaruController::class, 'cetak_pdf']);
-Route::get('/reset', [DaftarController::class, 'reset']);
-Route::get('/antrianAdmin', [DaftarController::class, 'antrianAdmin']);
+Route::get('/cetak_pdf/{id}', [DaftarController::class, 'cetak_pdf']);
 
 //Route::get('/form-old-pasien', function() {
 //return view('login');
@@ -66,6 +64,8 @@ Route::resource('dataPasien',  DataPasienController::class);
 //Route::get('/form-old-pasien',[LoginController::class, 'login'])->name('login');
 //Route::post('/action', [LoginController::class, 'action'])->name('action');
 //Route::get('/datatables', [DataController::class, 'data'])->name('datatables')->middleware('pendaftaran');
+
+Route::resource('dataPasienAdmin',  DataPasienAdminController::class);
 
 Route::resource('pengumuman', PengumumanController::class);
 

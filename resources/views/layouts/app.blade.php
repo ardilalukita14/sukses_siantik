@@ -115,6 +115,18 @@
         </div>
       </li>-->
       <li class="nav-item">
+      @guest
+        <a class="nav-link collapsed" href="{{'/dataPasien'}}">
+        </a>
+        @else
+        <a class="nav-link collapsed" href="{{'/dataPasienAdmin'}}">
+          <i class="fas fa-fw fa-columns"></i>
+          <span>Data Pendaftar</span>
+        </a>
+        @endguest
+      </li>
+      
+        <li class="nav-item">
         @guest
         <a class="nav-link collapsed" href="{{'/tampilPengumuman'}}">
           <i class="fas fa-fw fa-columns"></i>
@@ -137,19 +149,6 @@
         <a class="nav-link collapsed" href="{{'/jadwal'}}">
           <i class="fas fa-fw fa-columns"></i>
           <span>Jadwal Dokter</span>
-        </a>
-        @endguest
-
-      </li>
-
-      <li class="nav-item">
-        @guest
-        <a class="nav-link collapsed" href="{{''}}">
-        </a>
-        @else
-        <a class="nav-link collapsed" href="{{'/antrianAdmin'}}">
-          <i class="fas fa-fw fa-columns"></i>
-          <span>Antrian</span>
         </a>
         @endguest
 
