@@ -40,7 +40,7 @@ class DaftarController extends Controller
         // 'id_dokter' => 'required',
         // ]);
 
- 	// dd($request);
+        // dd($request);
         Daftar::create([
             'nama_pemilik' => $request->pemilik,
             'jenis_hewan' => $request->jenis_hewan,
@@ -87,5 +87,11 @@ class DaftarController extends Controller
         $jml = Antrian::orderBy('no_antrian', 'desc')->where('id', $id)->first();
         $pdf = PDF::loadview('antrian.cetak_pdf', ['jml' => $jml]);
         return $pdf->stream();
+    }
+    public function reset()
+    {
+        $data = Antrian::find(34);
+        $data->delete();
+        return redirect('/');
     }
 }

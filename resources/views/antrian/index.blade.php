@@ -15,6 +15,8 @@
             <p class="card-text">{{$jumlah->no_antrian}}</p>
 
           @endforeach
+          {{-- <a href="{{'/reset'}}" class="btn btn-danger">cetak</a> --}}
+
           {{-- <a href="{{route('cetak_pdf', $jml->id)}}" class="btn btn-danger">cetak</a> --}}
           <a href="{{'/'}}" class="btn btn-primary">Kembali</a>
 

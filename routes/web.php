@@ -43,6 +43,7 @@ Route::get('/cekPendaftar', [DaftarController::class, 'index']);
 Route::resource('daftarBaru', DataPendaftaranBaruController::class);
 Route::get('/antrian', [DaftarController::class, 'antrian']);
 Route::get('/cetak_pdf/{id}', [DaftarController::class, 'cetak_pdf']);
+Route::get('/reset', [DaftarController::class, 'reset']);
 
 //Route::get('/form-old-pasien', function() {
 //return view('login');
