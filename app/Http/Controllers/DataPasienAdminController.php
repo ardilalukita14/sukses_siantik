@@ -108,10 +108,11 @@ class DataPasienAdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-        {
-            $Daftar=Daftar::find($id)->delete();
-            return redirect()->route('dataPasienAdmin.index')
-                ->with('success', 'Data Berhasil Dihapus');
-        }
+    {
+        $Daftar=Daftar::find($id);
+        $Daftar->delete();
+        return redirect()->route('dataPasienAdmin.index')
+            ->with('success', 'Data Berhasil Dihapus');
     }
+}
 

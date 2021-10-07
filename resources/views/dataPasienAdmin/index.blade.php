@@ -48,7 +48,7 @@
                         <th>Alamat</th>
                         <th>Tanggal Periksa</th>
                         <th>Nama Dokter</th>
-                        <th width="280px">Action</th>
+                        <th width="200x">Action</th>
                       </tr>
                       @foreach ($daftars as $data)
                     <tr>
@@ -62,15 +62,14 @@
                    
                       
                         <td>
-                      
+                          <form action="{{ route('dataPasienAdmin.destroy',$data->id) }}" method="POST">
                             <a class="btn btn-info" href="{{ route('dataPasienAdmin.show',$data->id) }}">Show</a>
                             <a class="btn btn-primary" href="{{ route('dataPasienAdmin.edit',$data->id) }}">Update</a>
                             <!--<a class="btn btn-primary" href="{{ route('dataPasien.create',$data->id) }}">Create</a>-->
-                          
+                       <br><br>  
                             @csrf 
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Delete</button>
-                        <br><br>
                           </td>
                     </tr>
                     @endforeach
