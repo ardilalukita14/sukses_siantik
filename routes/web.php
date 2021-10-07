@@ -41,21 +41,23 @@ Route::get('/form-new-pasien', [DaftarController::class, 'create']);
 Route::post('/daftar', [DaftarController::class, 'store']);
 Route::get('/cekPendaftar', [DaftarController::class, 'index']);
 Route::resource('daftarBaru', DataPendaftaranBaruController::class);
+Route::get('/antrian', [DaftarController::class, 'antrian']);
+Route::get('/cetak_pdf/{id}', [DaftarController::class, 'cetak_pdf']);
 
 //Route::get('/form-old-pasien', function() {
-    //return view('login');
+//return view('login');
 //});
 
-Route::get('/simple-tables', function() {
+Route::get('/simple-tables', function () {
     return view('simple-tables');
 });
 
-Route::get('/datatables', function() {
+Route::get('/datatables', function () {
     return view('datatables');
 });
 
 //Route::get('/daftar-pasien', function() {
-    //return view('dataPasien.index');
+//return view('dataPasien.index');
 //});
 
 Route::resource('dataPasien',  DataPasienController::class);

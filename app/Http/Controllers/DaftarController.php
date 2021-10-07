@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Antrian;
 use App\Models\Daftar;
 use App\Models\dokter;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use PDF;
 
 class DaftarController extends Controller
 {
@@ -24,7 +27,7 @@ class DaftarController extends Controller
     public function create()
     {
         $dokter = dokter::all();
-        return view('form_advanceds', ['dokter' => $dokter]);
+        return view('pendaftaran', ['dokter' => $dokter]);
     }
     public function store(Request $request)
     {
@@ -36,7 +39,8 @@ class DaftarController extends Controller
         // 'alamat' => 'required',
         // 'id_dokter' => 'required',
         // ]);
-        // dd($request);
+
+ 	// dd($request);
         Daftar::create([
             'nama_pemilik' => $request->pemilik,
             'jenis_hewan' => $request->jenis_hewan,
@@ -55,6 +59,33 @@ class DaftarController extends Controller
         // $daftar->alamat = $request->alamat;
         // $daftar->id_dokter = $request->id_dokter;
         // $daftar->save();
-        return view('index');
+
+        return redirect('/antrian')
+            ->with('success', 'Data Berhasil Ditambahkan');
+        // return redirect('/form-new-pasien')
+        //     ->with('success', 'Data Berhasil Disimpan ');
+    }
+    public function antrian()
+    {
+        $antrian = Antrian::all();
+        $nomer = Antrian::max('no_antrian');
+
+        if ($antrian) {
+            $jumlah = $nomer + 1;
+        } else {
+            $jumlah = 1;
+        }
+        Antrian::create([
+            'no_antrian' => $jumlah,
+            'tanggal' =>  Carbon::now()
+        ]);
+        $jml = Antrian::orderBy('no_antrian', 'desc')->paginate(1);
+        return view('antrian.index', compact('jml'));
+    }
+    public function cetak_pdf($id)
+    {
+        $jml = Antrian::orderBy('no_antrian', 'desc')->where('id', $id)->first();
+        $pdf = PDF::loadview('antrian.cetak_pdf', ['jml' => $jml]);
+        return $pdf->stream();
     }
 }
