@@ -1,9 +1,9 @@
-@include('layouts.app') 
-   
+@include('layouts.app')
+
 @section('sidebar')
   @parent
 @endsection
-    
+
 @section('content')
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
@@ -15,7 +15,7 @@
               <li class="breadcrumb-item active" aria-current="page">DataTables</li>
             </ol>
           </div>
-          
+
           <!-- Row -->
           <div class="row">
             <!-- Datatables -->
@@ -38,7 +38,7 @@
 
                 <div class="table-responsive p-3">
                   <table class="table align-items-center table-flush" id="dataTable">
-                   
+
                   <table class="table table-bordered">
                     <tr>
                         <th>Nama </th>
@@ -47,26 +47,26 @@
                         <th>Kuota</th>
                         <th width="100px">Action</th>
                       </tr>
-                      @foreach ($Jadwal as $jadwal)
+                      @foreach ($paginate as $jadwal)
                     <tr>
 
                         <td>{{ $jadwal->nama_dokter}}</td>
                         <td>{{ $jadwal->jam_praktek }}</td>
                         <td>{{ $jadwal->hari_praktek}}</td>
                         <td>{{ $jadwal->kuota }}</td>
-                        
-                        <td>    
+
+                        <td>
                             <a class="btn btn-info" href="{{ route('jadwal.show',$jadwal->id) }}">Show</a>
                             <!--<a class="btn btn-primary" href="{{ route('jadwal.edit',$jadwal->id) }}">Update</a>
                             <a class="btn btn-primary" href="{{ route('jadwal.create',$jadwal->id) }}">Create</a>-->
-                           
+
                         </td>
                         @endforeach
                     </tr>
-                  
+
                 </table>
-            
-         
+
+
         <!---Container Fluid-->
       </div>
 
@@ -100,7 +100,7 @@
   <!-- Page level custom scripts -->
   <script>
     $(document).ready(function () {
-      $('#dataTable').DataTable(); // ID From dataTable 
+      $('#dataTable').DataTable(); // ID From dataTable
       $('#dataTableHover').DataTable(); // ID From dataTable with Hover
     });
   </script>

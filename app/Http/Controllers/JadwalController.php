@@ -15,7 +15,7 @@ class JadwalController extends Controller
     public function index(Request $request)
     {
         $Jadwal = Dokter::paginate(5); // Pagination mengambil 5 data
-        return view('jadwal.index' , compact('Jadwal'));
+        return view('jadwal.index', compact('Jadwal'));
     }
 
     /**
@@ -66,13 +66,11 @@ class JadwalController extends Controller
     {
         $cari = $request->get('search');
         if ($cari) {
-            $jadwal = Dokter::with('dokter');
             $paginate = Dokter::orderBy('nama_dokter', 'asc')->where("nama_dokter", "LIKE", "%$cari%")->paginate(5);
         } else {
-            $jadwal = Dokter::with('dokter');
             $paginate = Dokter::orderBy('nama_dokter', 'asc')->paginate(5);
         }
-        return view('jadwal.tampil', ['jadwal' => $jadwal, 'paginate' => $paginate]);
+        return view('jadwal.tampil', ['paginate' => $paginate]);
     }
 
     /**
@@ -118,7 +116,7 @@ class JadwalController extends Controller
      */
     public function destroy($id)
     {
-        $Jadwal=Dokter::find($id);
+        $Jadwal = Dokter::find($id);
         $Jadwal->delete();
         return redirect()->route('jadwal.index')
             ->with('success', 'Data Berhasil Dihapus');
