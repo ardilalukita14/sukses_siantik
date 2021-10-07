@@ -62,10 +62,17 @@ class JadwalController extends Controller
         return view('jadwal.detail', compact('Jadwal'));
     }
 
-    public function tampil()
+    public function tampil(Request $request)
     {
-        $Jadwal = Dokter::all();
-        return view('jadwal.tampil', compact('Jadwal'));
+        $cari = $request->get('search');
+        if ($cari) {
+            $jadwal = Dokter::with('dokter');
+            $paginate = Dokter::orderBy('nama_dokter', 'asc')->where("nama_dokter", "LIKE", "%$cari%")->paginate(5);
+        } else {
+            $jadwal = Dokter::with('dokter');
+            $paginate = Dokter::orderBy('nama_dokter', 'asc')->paginate(5);
+        }
+        return view('jadwal.tampil', ['jadwal' => $jadwal, 'paginate' => $paginate]);
     }
 
     /**
