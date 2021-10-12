@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('sidebar')
+  @parent
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -58,4 +62,47 @@
         </tr> 
         @endforeach
     </table>
-@endsection
+     <!---Container Fluid-->
+     </div>
+
+        <!-- Footer -->
+            </div>
+        </div>
+    </div>
+</div>
+        @include('layouts.footer')
+        <!-- Footer -->
+                    </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+            <!-- Scroll to top -->
+            <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+            </a>
+
+            <script src="vendor/jquery/jquery.min.js"></script>
+            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+            <script src="js/ruang-admin.min.js"></script>
+            <!-- Page level plugins -->
+            <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+            <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+            <!-- Page level custom scripts -->
+            <script>
+            $(document).ready(function () {
+            $('#dataTable').DataTable(); // ID From dataTable 
+            $('#dataTableHover').DataTable(); // ID From dataTable with Hover
+            });
+            </script>
+
+        </body>
+
+    </html>
+
+ @endsection
+            
