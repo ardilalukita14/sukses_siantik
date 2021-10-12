@@ -6,7 +6,7 @@
             <div class="pull-left mt-2">
                 <h2>KLINIK HEWAN</h2>
             </div>
-            
+
             <div class="float-right my-2">
                 <a class="btn btn-success" href="{{ route('jadwal.create') }}"> Input jadwal</a>
             </div>
@@ -23,12 +23,12 @@
             </div>
         </form>
     </div>
-    End Form Search --> 
+    End Form Search -->
 
     @if ($message = Session::get('success'))
     <div class="alert alert-success">
         <p>{{ $message }}</p>
-    </div> 
+    </div>
     @endif
     <table class="table table-bordered">
         <tr>
@@ -55,12 +55,13 @@
 
                 <a class="btn btn-primary" href="{{ route('jadwal.edit',$jadwal->id) }}">Edit</a>
 
-                @csrf 
+                @csrf
                 @method('DELETE')
 
                 <button type="submit" class="btn btn-danger">Delete</button>
             </td>
-        </tr> 
+        </tr>
         @endforeach
     </table>
+    {{ $Jadwal->links() }}
 @endsection

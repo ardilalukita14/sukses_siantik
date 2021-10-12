@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Antrian;
 use App\Models\Daftar;
 use App\Models\Dokter;
-
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DataPasienController extends Controller
@@ -33,7 +35,6 @@ class DataPasienController extends Controller
      */
     public function create()
     {
-    
     }
 
     /**
@@ -44,7 +45,6 @@ class DataPasienController extends Controller
      */
     public function store(Request $request)
     {
-        
     }
 
     /**
@@ -91,15 +91,15 @@ class DataPasienController extends Controller
         $daftars = Daftar::find($id);
 
         $daftars->tanggal = $request->get('tanggal');
-       
+
         $dokter = Dokter::find($request->get('dokter'));
 
         $daftars->dokter()->associate($dokter);
         $daftars->save();
 
-        return redirect()->route('dataPasien.index')
-        ->with('success', 'Data Berhasil Diupdate');
-}
+        return redirect('/antrian')
+            ->with('success', 'Data Berhasil Diupdate');
+    }
 
     /**
      * Remove the specified resource from storage.

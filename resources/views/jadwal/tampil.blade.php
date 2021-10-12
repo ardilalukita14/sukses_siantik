@@ -65,7 +65,7 @@
                     </tr>
 
                 </table>
-
+                {{ $paginate->links() }}
 
         <!---Container Fluid-->
       </div>

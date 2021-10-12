@@ -65,6 +65,8 @@ class DaftarController extends Controller
         // return redirect('/form-new-pasien')
         //     ->with('success', 'Data Berhasil Disimpan ');
     }
+
+    //copas ke controller daftar lama
     public function antrian()
     {
         $antrian = Antrian::all();
