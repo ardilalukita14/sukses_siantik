@@ -20,14 +20,10 @@
                     </div>
                     @endif
 
-                    <form method="post" action="{{ route('pengumuman.update', $Pengumuman->Id) }}" id="myForm">
+                    <form method="post" action="{{ route('pengumuman.update', $Pengumuman->Id) }}" id="myForm" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <!--<div class="form-group">
-                        <label for="Id">Id </label>
-                        <input type="text" name="Id" class="form-control" id="Id" value="{{$Pengumuman->Id}}" aria-describedby="id" >
-                    </div>-->
-
+                    <div class="featured__controls">
                     <div class="form-group">
                         <label for="Judul">Judul</label>
                         <input type="Judul" name="Judul" class="form-control" id="Judul" value="{{$Pengumuman->Judul}}" aria-describedby="Judul" >

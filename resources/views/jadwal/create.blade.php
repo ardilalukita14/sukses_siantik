@@ -20,7 +20,7 @@
                         </ul>
                     </div>
                     @endif
-                    <form method="post" action="{{ route('jadwal.store') }}" id="myForm">
+                    <form method="post" action="{{ route('jadwal.store') }}" id="myForm" enctype="multipart/form-data">
                         @csrf
                         <div class="featured__controls">
                             <!--<div class="form-group">
@@ -30,7 +30,7 @@
 
                             <div class="form-group">
                                 <label for="id">id</label>
-                                <input type="id" name="id" class="form-control" id="id" aria-describedby="id" >
+                                <input type="id" name="id" class="form-control" id="id" aria-describedby="id">
                             </div>
 
                             <div class="form-group">

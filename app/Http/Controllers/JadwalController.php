@@ -36,6 +36,14 @@ class JadwalController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'id' => 'required',
+            'Nama' => 'required',
+            'Jam_Praktik' => 'required',
+            'Hari_Praktik' => 'required',
+            'Kuota' => 'required',
+        ]);
+
         Dokter::create([
             'id' => $request->id,
             'nama_dokter' => $request->Nama,
@@ -95,6 +103,13 @@ class JadwalController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'Nama' => 'required',
+            'Jam_Praktik' => 'required',
+            'Hari_Praktik' => 'required',
+            'Kuota' => 'required',
+        ]);
+
         $Jadwal = Dokter::find($id);
         $Jadwal->id = $id;
         $Jadwal->nama_dokter = $request->Nama;

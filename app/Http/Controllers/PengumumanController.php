@@ -36,6 +36,11 @@ class PengumumanController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'Judul' => 'required',
+            'Isi' => 'required',
+        ]);
+        
         Pengumuman::create([
             'Id' => $request->id,
             'Judul' => $request->Judul,
@@ -88,6 +93,11 @@ class PengumumanController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'Judul' => 'required',
+            'Isi' => 'required',
+        ]);
+
         $Pengumuman = Pengumuman::find($id);
         $Pengumuman->Id = $id;
         $Pengumuman->Judul = $request->Judul;

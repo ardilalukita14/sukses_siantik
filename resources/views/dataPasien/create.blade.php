@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Input Data Petani</h2>
+                        <h2>Input Data Pasien</h2>
                     </div>
                     <div class="card-body">
                         @if ($errors->any())
@@ -21,7 +21,7 @@
                             </div>
                         @endif
                     </div>
-                    <form method="post" action="{{ route('dataPasien.store') }}" id="myForm">
+                    <form method="post" action="{{ route('dataPasien.store') }}" id="myForm" enctype="multipart/form-data">
                         @csrf
                         <div class="featured__controls">
                             <div class="form-group">

@@ -42,7 +42,7 @@
                 </ul>
             </div>
             @endif
-            <form method="post" action="{{ route('dataPasien.update', $Daftar->id) }}" id="myForm">
+            <form method="post" action="{{ route('dataPasien.update', $Daftar->id) }}" id="myForm" enctype="multipart/form-data"> 
                 @csrf
                 @method('PUT')
                 <div class="featured__controls">

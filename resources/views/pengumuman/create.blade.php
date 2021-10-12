@@ -10,23 +10,18 @@
                 </div>
 
                 <div class="card-body">
-                    @if ($errors->any())
+                @if ($errors->any())
                     <div class="alert alert-danger">
                         <strong>Whoops!</strong> There were some problems with your input.<br><br>
                         <ul>
                             @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
+                                <li>{{ $error }}</li>
                             @endforeach
                         </ul>
                     </div>
-                    @endif
-                    <form method="post" action="{{ route('pengumuman.store') }}" id="myForm">
-                        @csrf
-                        <div class="featured__controls">
-                            <!--<div class="form-group">
-                                <label for="Id">Id </label>
-                                <input type="text" name="Id" class="form-control" id="Id" aria-describedby="Id" >
-                            </div>-->
+                @endif
+                <form method="post" action="{{ route('pengumuman.store') }}" id="myForm" enctype="multipart/form-data">
+                @csrf
 
                             <div class="form-group">
                                 <label for="Judul">Judul</label>

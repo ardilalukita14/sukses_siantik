@@ -31,14 +31,6 @@ class DaftarController extends Controller
     }
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'nama_pemilik' => 'required',
-        // 'jenis_hewan' => 'required',
-        // 'usia' => 'required',
-        // 'tanggal' => 'required',
-        // 'alamat' => 'required',
-        // 'id_dokter' => 'required',
-        // ]);
 
         // dd($request);
         Daftar::create([
@@ -48,8 +40,6 @@ class DaftarController extends Controller
             'tanggal' => $request->tanggal,
             'alamat' => $request->alamat,
             'dokter_id' => $request->id_dokter,
-            'kelas_id' => $request->kelas_id,
-
         ]);
         // $daftar = new Daftar;
         // $daftar->nama_pemilik = $request->pemilik;
