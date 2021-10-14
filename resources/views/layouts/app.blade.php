@@ -60,6 +60,7 @@
           <span>Home</span>
         </a>
       </li>
+      @guest
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
           aria-controls="collapseForm">
@@ -88,6 +89,38 @@
           </div>
         </div>
       </li>
+
+          @else
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="#" aria-expanded="true"
+              aria-controls="collapseForm">
+              {{-- <i class="fab fa-fw fa-wpforms"></i> --}}
+              {{-- <span>Pendaftaran</span> --}}
+            </a>
+            <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                {{-- <h6 class="collapse-header">Pendaftaran</h6>
+                <a class="collapse-item" href="{{'/dataPasien'}}">Form Pendaftar Lama</a>
+                <a class="collapse-item" href="{{'/form-new-pasien'}}">Form Pendaftar Baru</a> --}}
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            {{-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
+              aria-controls="collapseTable">
+              <i class="fas fa-fw fa-table"></i>
+              <span>Status Pendaftaran</span>
+            </a> --}}
+            <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                {{-- <h6 class="collapse-header">Status Pendaftaran</h6>
+                <a class="collapse-item" href="{{'/cekPendaftar'}}">Cek Pendaftaran</a> --}}
+                <!--<a class="collapse-item" href="{{'/datatables'}}">DataTables</a>-->
+              </div>
+            </div>
+          </li>
+      @endguest
+
       <!--<li class="nav-item">
         <a class="nav-link" href="ui-colors.html">
           <i class="fas fa-fw fa-palette"></i>
